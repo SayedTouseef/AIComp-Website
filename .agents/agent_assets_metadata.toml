@@ -6,3 +6,9 @@ id = "3qWMp6Ob6q8Favknck8Na"
 uri = "file://aicomp-project.tar.gz"
 type = "unspecified"
 title = "AIComp — Full Project Source Code"
+
+[[outputs]]
+id = "ZYKYN3EIUPJGeXK7SjUbw"
+uri = "file://replit.md"
+type = "text"
+title = "AIComp Project Documentation"
