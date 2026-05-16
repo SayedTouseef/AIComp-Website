@@ -12,3 +12,9 @@ id = "ZYKYN3EIUPJGeXK7SjUbw"
 uri = "file://replit.md"
 type = "text"
 title = "AIComp Project Documentation"
+
+[[outputs]]
+id = "oVGz3w3EQV8jSXyLUUG2s"
+uri = "file://aicomp-restored.tar.gz"
+type = "unspecified"
+title = "AIComp — Restored Frontend (Published Version Backup)"
