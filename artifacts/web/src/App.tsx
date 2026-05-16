@@ -1,4 +1,4 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -15,6 +15,12 @@ import DealsPage from "@/pages/DealsPage";
 import LaunchesPage from "@/pages/LaunchesPage";
 import GuidesPage from "@/pages/GuidesPage";
 import NotFound from "@/pages/not-found";
+import { AdminLayout } from "@/pages/admin/AdminLayout";
+import Dashboard from "@/pages/admin/Dashboard";
+import AdminProducts from "@/pages/admin/AdminProducts";
+import AdminCategories from "@/pages/admin/AdminCategories";
+import AdminBrands from "@/pages/admin/AdminBrands";
+import AdminCrawler from "@/pages/admin/AdminCrawler";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -40,7 +46,26 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+function AdminRouter() {
+  return (
+    <AdminLayout>
+      <Switch>
+        <Route path="/admin" component={Dashboard} />
+        <Route path="/admin/products" component={AdminProducts} />
+        <Route path="/admin/categories" component={AdminCategories} />
+        <Route path="/admin/brands" component={AdminBrands} />
+        <Route path="/admin/crawler" component={AdminCrawler} />
+      </Switch>
+    </AdminLayout>
+  );
+}
+
 function Router() {
+  const [location] = useLocation();
+  const isAdmin = location.startsWith("/admin");
+
+  if (isAdmin) return <AdminRouter />;
+
   return (
     <Layout>
       <Switch>
